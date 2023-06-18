@@ -35,19 +35,14 @@ async function main() {
   );
   jsonCalldata = JSON.parse("[" + rawcalldata + "]");
 
-  console.log(
-    "jsonCalldata",
+  const resp = await verifier.verifyProof(
     jsonCalldata[0],
     jsonCalldata[1],
     jsonCalldata[2],
     jsonCalldata[3]
   );
-  await verifier.verifyProof(
-    jsonCalldata[0],
-    jsonCalldata[1],
-    jsonCalldata[2],
-    [12]
-  );
+
+  console.log(resp);
 }
 
 main()
